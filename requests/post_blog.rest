@@ -1,0 +1,33 @@
+### Get all blogs
+GET http://localhost:3001/api/blogs/
+
+### Post blog
+POST http://localhost:3001/api/blogs/
+content-type: application/json
+
+{
+    "title": "Go To Statement Considered Harmful",
+    "author": "Edsger W. Dijkstra",
+    "url": "http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html",
+    "likes": 5
+}
+
+### No author
+POST http://localhost:3001/api/blogs/
+content-type: application/json
+
+{
+    "title": "Go To Statement Considered Harmful",
+    "url": "http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html",
+    "likes": 5
+}
+
+### No url
+POST http://localhost:3001/api/blogs/
+content-type: application/json
+
+{
+    "title": "Go To Statement Considered Harmful",
+    "author": "Edsger W. Dijkstra",
+    "likes": 5
+}
