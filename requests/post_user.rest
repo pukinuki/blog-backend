@@ -1,0 +1,39 @@
+### Get all users
+GET http://localhost:3003/api/users/
+
+### Post user
+POST http://localhost:3003/api/users/
+content-type: application/json
+
+{
+    "username": "hellas",
+    "name": "Arto Hellas",
+    "password": "password"
+}
+
+### No username
+POST http://localhost:3003/api/users/
+content-type: application/json
+
+{
+    "name": "Arto Hellas",
+    "password": "password"
+}
+
+### No name
+POST http://localhost:3003/api/users/
+content-type: application/json
+
+{
+    "username": "hellas",
+    "password": "password"
+}
+
+### No password
+POST http://localhost:3003/api/users/
+content-type: application/json
+
+{
+    "username": "hellas",
+    "name": "Arto Hellas"
+}
