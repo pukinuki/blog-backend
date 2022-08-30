@@ -1,4 +1,5 @@
 const _ = require('lodash')
+const User = require('../models/user')
 
 const blogs = [
   {
@@ -51,7 +52,41 @@ const blogs = [
   }
 ]
 
+const users = [
+  {
+    _id: '630e0f6ec9e0d67fe55c36c6',
+    username: 'root',
+    name: 'Superuser',
+    password: 'pukinuki',
+    __v: 0
+  },
+  {
+    _id: '630e0f6ec9e0d67fe55c36c7',
+    username: 'test1',
+    name: 'Test user 1',
+    password: 'test1',
+    __v: 0
+  },
+  {
+    _id: '630e0f6ec9e0d67fe55c36c8',
+    username: 'test2',
+    name: 'Test user 2',
+    password: 'test2',
+    __v: 0
+  },
+  {
+    _id: '630e0f6ec9e0d67fe55c36c9',
+    username: 'test3',
+    name: 'Test user 3',
+    password: 'test3',
+    __v: 0
+  }
+
+]
+
 const listWithOneBlog = [blogs[1]]
+
+const listWithOneUser = [users[1]]
 
 const dummy = (blogs) => {
   if (typeof blogs === 'object')
@@ -112,12 +147,20 @@ const mostLikes = (blogs) => {
   }
 }
 
+const usersInDb = async () => {
+  const users = await User.find({})
+  return users.map(u => u.toJSON())
+}
+
 module.exports = {
   dummy,
   totalLikes,
   favoriteBlog,
   mostBlogs,
   mostLikes,
+  usersInDb,
   listWithOneBlog,
-  blogs
+  listWithOneUser,
+  blogs,
+  users
 }
