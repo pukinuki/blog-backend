@@ -1,8 +1,8 @@
 ### Get all blogs
-GET http://localhost:3001/api/blogs/
+GET http://localhost:3003/api/blogs/
 
 ### Post blog
-POST http://localhost:3001/api/blogs/
+POST http://localhost:3003/api/blogs/
 content-type: application/json
 
 {
