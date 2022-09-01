@@ -11,6 +11,16 @@ content-type: application/json
     "password": "password"
 }
 
+### Post other user
+POST http://localhost:3003/api/users/
+content-type: application/json
+
+{
+    "username": "pukinuki",
+    "name": "Pukinuki",
+    "password": "1234"
+}
+
 ### No username
 POST http://localhost:3003/api/users/
 content-type: application/json

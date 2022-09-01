@@ -1,2 +1,8 @@
-### DELETE person by <id>
-DELETE http://localhost:3001/api/blogs/63088636bc4bd3ba9ea39ce1
+### DELETE blog by correct user
+DELETE http://localhost:3003/api/blogs/63109a38c14ead1b0c87163e
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhlbGxhcyIsImlkIjoiNjMwZjdkYjg0MmE4MjBkOTk0Yjg5OTQxIiwiaWF0IjoxNjYyMDM1NTcwLCJleHAiOjE2NjIwMzkxNzB9.jkQoLOm-xtgP382mFckf3KOe2pBwj2-xJtV0iPMXUc4
+
+### DELETE blog by other user
+DELETE http://localhost:3003/api/blogs/63109a35c14ead1b0c871636
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InB1a2ludWtpIiwiaWQiOiI2MzEwOGMzZTgwMTk5NjU2M2ZhMjNjZDciLCJpYXQiOjE2NjIwMjg5MjMsImV4cCI6MTY2MjAzMjUyM30.y2bPBM0H6ljSgpr9OX44ClUsdrAS_SL_2SBjS1oMYwU
+

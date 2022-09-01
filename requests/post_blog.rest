@@ -1,9 +1,19 @@
 ### Get all blogs
 GET http://localhost:3003/api/blogs/
 
+### Login
+POST http://localhost:3003/api/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "hellas",
+    "password": "password"
+}
+
 ### Post blog
 POST http://localhost:3003/api/blogs/
 content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhlbGxhcyIsImlkIjoiNjMwZjdkYjg0MmE4MjBkOTk0Yjg5OTQxIiwiaWF0IjoxNjYyMDMxOTI1LCJleHAiOjE2NjIwMzU1MjV9.CDLhl-rSV1xx_IfRDnzmFv0ITwSBs0WypxukPrNqcYU
 
 {
     "title": "Go To Statement Considered Harmful",

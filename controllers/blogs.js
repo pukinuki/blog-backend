@@ -18,9 +18,14 @@ blogsRouter.get('/:id', async (request, response) => {
 
 blogsRouter.post('/',async (request, response) => {
 
-  const body = { ...request.body }
+  if (!request.token)
+    return response.status(401).json({ error: 'token missing' })
 
-  const user = await User.findOne({})
+  const decodedUser = request.user
+
+  const user = await User.findById(decodedUser.id)
+
+  const body = { ...request.body }
 
   body['user'] = user._id
 
@@ -35,7 +40,28 @@ blogsRouter.post('/',async (request, response) => {
 })
 
 blogsRouter.delete('/:id', async (request, response) => {
+  if (!request.token)
+    return response.status(401).json({ error: 'token missing' })
+
+  const decodedUser = request.user
+
+  const blog = await Blog.findById(request.params.id)
+
+  if (!blog)
+    return response.status(204).end()
+
+  if ( blog.user.toString() !== decodedUser.id.toString() ) {
+    return response.status(401).json({ error: 'user not allowed to delete this blog' })
+  }
+
   await Blog.findByIdAndRemove(request.params.id)
+
+  const user = await User.findById(decodedUser.id)
+  user.blogs = user.blogs.filter(b => {
+    return b._id.toString() !== blog._id.toString()
+  })
+  await user.save()
+
   response.status(204).end()
 })
 
