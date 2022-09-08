@@ -36,6 +36,7 @@ blogsRouter.post('/',async (request, response) => {
   user.blogs = user.blogs.concat(savedBlog._id)
   await user.save()
 
+  savedBlog['user'] = user
   response.status(201).json(savedBlog)
 })
 
